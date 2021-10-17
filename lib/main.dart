@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx_saegis/controller.dart';
 import 'package:getx_saegis/demo.dart';
 import 'package:getx_saegis/pages/page_one.dart';
 
@@ -37,6 +38,14 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  late MyController _myController;
+
+  @override
+  void initState() {
+    _myController = Get.put(MyController());
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             ElevatedButton(
               child: const Text('Page One'),
-              onPressed: () => Get.to(() => const PageOne()),
+              onPressed: () => Get.to(() =>  PageOne()),
             ),
             ElevatedButton(
                 onPressed: () {
